@@ -1,7 +1,13 @@
 const GenreFilter = ({ genres, movies, setMoviesData }) => {
   const handleClick = (genre) => {
-    let data = movies.filter((movie) => movie.genre === genre);
+
+    if (genre!=="All") {
+      let data = movies.filter((movie) => movie.genre === genre);
     setMoviesData(data);
+    }else{
+      setMoviesData(movies)
+    }
+   
     console.log("Filtered by", genre);
   };
   return (
